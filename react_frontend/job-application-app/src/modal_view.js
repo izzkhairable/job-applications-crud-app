@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -6,8 +5,9 @@ import LinksList from './linksList';
 import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import ImagesThumbnail from './imagesThumbnail';
-
+import Lightbox from './lightbox';
+import DisplayPDF from './displayPDF';
+import DocumentsList from './documentsList';
 const theme = createTheme({
 	breakpoints: {
 		values: {
@@ -28,13 +28,23 @@ const style = {
 	bgcolor: 'background.paper',
 	border: '2px solid #fff',
 	boxShadow: 24,
+
 	p: 4,
+	[theme.breakpoints.up('xl')]: {
+		width: '30%',
+		height: 'auto',
+		overflow: 'hidden',
+	},
 	[theme.breakpoints.up('md')]: {
 		width: '42%',
+		height: 'auto',
+		overflow: 'hidden',
 	},
 
 	[theme.breakpoints.up('xs')]: {
-		width: '80%',
+		width: '95%',
+		height: '95%',
+		overflow: 'scroll',
 	},
 };
 
@@ -104,11 +114,15 @@ const ModalView = ({ open, handleClose, job }) => {
 				<Typography variant="body1" sx={{ mt: 2 }}>
 					<b>Images</b>
 				</Typography>
-				<ImagesThumbnail images={job.images} />
+				<Lightbox images={job.images} open={open} />
 				<Typography variant="body1" sx={{ mt: 2 }}>
 					<b>Links</b>
 				</Typography>
 				<LinksList links={job.links} />
+				<Typography variant="body1" sx={{ mt: 2 }}>
+					<b>Documents</b>
+				</Typography>
+				<DocumentsList documents={job.documents} />
 				<Stack spacing={2} direction="row">
 					<Button
 						variant="outlined"

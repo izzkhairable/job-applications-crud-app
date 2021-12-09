@@ -33,7 +33,7 @@ const Card_main = ({ job }) => {
 				<CardMedia
 					component="img"
 					height="140"
-					image="/sample_images/screenshot.png"
+					image={job.images[0].url}
 					alt="green iguana"
 				/>
 				<CardContent>

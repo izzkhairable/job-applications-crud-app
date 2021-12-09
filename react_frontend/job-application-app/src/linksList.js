@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 const linksList = ({ links }) => {
 	return (
 		<List sx={{ mt: 0, pt: 0 }}>
-			{links.map((value) => {
+			{links.map((value, index) => {
 				const text = (
 					<Typography variant="body2">
 						{value.length > 30 ? value.slice(0, 35).trim() + '...' : value}
@@ -18,7 +18,7 @@ const linksList = ({ links }) => {
 				);
 				return (
 					<ListItem
-						key={value}
+						key={index}
 						disableGutters
 						secondaryAction={
 							<Link href={value} underline="none">

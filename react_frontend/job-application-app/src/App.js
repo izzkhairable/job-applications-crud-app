@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { teal } from '@mui/material/colors';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import SimpleReactLightbox from 'simple-react-lightbox'
 
 const theme = createTheme({
 	palette: {
@@ -31,7 +32,8 @@ const theme = createTheme({
 
 function App() {
 	return (
-		<div
+		<SimpleReactLightbox>
+	<div
 			className="App"
 			sx={{ padding: 0, margin: 0, height: '100%', width: '100%' }}
 		>
@@ -47,6 +49,8 @@ function App() {
 				</Fab>
 			</ThemeProvider>
 		</div>
+		</SimpleReactLightbox>
+	
 	);
 }
 
