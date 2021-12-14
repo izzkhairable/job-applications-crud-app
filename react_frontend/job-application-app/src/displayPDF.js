@@ -34,7 +34,7 @@ const DisplayPDF = ({ document, currWidth, currHeight, handleClose }) => {
 				<Page
 					pageNumber={pageNumber}
 					scale={
-						(currWidth >= 900 && 0.9) ||
+						(currWidth >= 900 && 0.85) ||
 						(currWidth >= 600 && 1.0 && 0.8) ||
 						(currWidth >= 0 && 1.0 && 0.55)
 					}

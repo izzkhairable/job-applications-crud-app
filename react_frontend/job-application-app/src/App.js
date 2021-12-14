@@ -2,8 +2,7 @@ import Navbar from './navbar';
 import Body from './body';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { teal } from '@mui/material/colors';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+import AddButton from './addButton';
 import SimpleReactLightbox from 'simple-react-lightbox';
 
 const theme = createTheme({
@@ -40,13 +39,7 @@ function App() {
 				<ThemeProvider theme={theme}>
 					<Navbar />
 					<Body />
-					<Fab
-						color="primary"
-						aria-label="add"
-						sx={{ position: 'fixed', bottom: 15, right: 15 }}
-					>
-						<AddIcon />
-					</Fab>
+					<AddButton />
 				</ThemeProvider>
 			</div>
 		</SimpleReactLightbox>

@@ -9,7 +9,7 @@ import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Grid from '@mui/material/Grid';
-import ModalView from './modal_view';
+import ModalView from './modalView';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
