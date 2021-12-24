@@ -8,7 +8,7 @@
 
 This is part of a side project and it is still a work in progress.
 
-### Update 24 December 2021
+### Project Update 24 December 2021
 - Complete Express JS Get Jobs API
 - Set up MongoDB Database with Sample Data
 - Done with React View and Insert Components(Including image and pdf viewer)
