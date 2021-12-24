@@ -1,12 +1,11 @@
-import jobs_data from "./jobs_data"
+const GetJobs = async (from, size, sort) => {
+	const jobs = await fetch('http://127.0.0.1:3001/jobs/all')
+		.then((response) => response.json())
+		.then((data) => data)
+		.catch((error) => {
+			console.error('Error:', error);
+		});
+	return jobs;
+};
 
-const GetJobs=(from,size,sort)=>{
-    let modified_jobs_data=[]
-    sort==="asc"?
-    modified_jobs_data=jobs_data.slice(from, from+size).sort():
-    modified_jobs_data=jobs_data.slice(from, from+size).sort().reverse()
-    
-    return modified_jobs_data
-}
-
-export default GetJobs
+export default GetJobs;

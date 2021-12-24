@@ -4,7 +4,7 @@ import Grid from './grid';
 const Body = () => {
 	return (
 		<Container fixed>
-			<Typography variant="h6" sx={{ m: 2 }}>
+			<Typography variant="h6" sx={{ my: 2 }}>
 				All Jobs Applied
 			</Typography>
 			<Grid />

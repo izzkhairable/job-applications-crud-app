@@ -28,37 +28,32 @@ const style = {
 	bgcolor: 'background.paper',
 	border: '2px solid #fff',
 	boxShadow: 24,
-
+	overflow: 'auto',
 	p: 4,
 	// 1536 - above
 	[theme.breakpoints.up('xl')]: {
 		width: '30%',
 		height: 'auto',
-		overflow: 'hidden',
 	},
 	// 1200 - 1535
 	[theme.breakpoints.up('lg')]: {
 		width: '30%',
 		height: '95%',
-		overflow: 'hidden',
 	},
 	// 900 - 1999
 	[theme.breakpoints.up('md')]: {
 		width: '42%',
 		height: '95%',
-		overflow: 'scroll',
 	},
 	//600  - 899
 	[theme.breakpoints.up('sm')]: {
 		width: '60%',
 		height: '90%',
-		overflow: 'scroll',
 	},
 	//0 - 599
 	[theme.breakpoints.up('xs')]: {
 		width: '90%',
 		height: '95%',
-		overflow: 'scroll',
 	},
 };
 

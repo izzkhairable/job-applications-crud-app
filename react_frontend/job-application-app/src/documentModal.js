@@ -24,8 +24,9 @@ const style = {
 	bgcolor: 'background.paper',
 	border: '2px solid #000',
 	boxShadow: 24,
-	p: 4,
-	width: 'auto',
+	width: '100%',
+	height: '100%',
+	overflow: 'auto',
 };
 
 const DocumentModal = ({ open, handleClose, curDocument }) => {
