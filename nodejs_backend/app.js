@@ -1,12 +1,13 @@
-var cors = require('cors');
-const express = require('express');
+import cors from 'cors';
+import express from 'express';
+import { router as get_jobs } from './routes/get_jobs.js';
+
 const app = express();
 const port = 3001;
-const get_jobs = require('./routes/get_jobs');
 
 app.use(cors());
 app.use(express.static('public'));
-app.use('/jobs', get_jobs);
+app.use('/get_jobs', get_jobs);
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
