@@ -30,7 +30,10 @@ const DisplayPDF = ({ document, currWidth, currHeight, handleClose }) => {
 			alignItems="center"
 			spacing={2}
 		>
-			<Document file={document.url} onLoadSuccess={onDocumentLoadSuccess}>
+			<Document
+				file={{ url: document.url }}
+				onLoadSuccess={onDocumentLoadSuccess}
+			>
 				<Page
 					pageNumber={pageNumber}
 					scale={
