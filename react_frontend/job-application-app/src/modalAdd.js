@@ -10,7 +10,6 @@ import MenuItem from '@mui/material/MenuItem';
 import country_name from './country_name';
 import * as React from 'react';
 import { Button } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
 import DisplayImagesUploaded from './displayImagesUploaded';
 import DisplayPdfsUploaded from './displayPdfsUploaded';
 
@@ -30,13 +29,38 @@ const style = {
 };
 
 const ModalAdd = ({ open, handleClose }) => {
-	const [dateApplied, setDateApplied] = React.useState(null);
+	const [jobTitle, setJobTitle] = React.useState(null);
+	const [company, setCompany] = React.useState(null);
 	const [country, setCountry] = React.useState('Select a country');
+	const [city, setCity] = React.useState(null);
+	const [dateApplied, setDateApplied] = React.useState(null);
+	const [notes, setNotes] = React.useState(null);
 	const [images, setImages] = React.useState([]);
 	const [pdfs, setPdfs] = React.useState([]);
 
+	// Temporary state
 	const [selectedImage, setSelectedImage] = React.useState();
 	const [selectedPdf, setSelectedPdf] = React.useState();
+
+	const textFieldHandler = (event, type) => {
+		switch (type) {
+			case 'jobTitle':
+				setJobTitle(event.target.value);
+				break;
+			case 'company':
+				setCompany(event.target.value);
+				break;
+			case 'notes':
+				setNotes(event.target.value);
+				break;
+			case 'city':
+				setCity(event.target.value);
+				break;
+			default:
+				return;
+		}
+		console.log(jobTitle, company, notes, city);
+	};
 
 	const countrySelect = (event) => {
 		setCountry(event.target.value);
@@ -119,8 +143,18 @@ const ModalAdd = ({ open, handleClose }) => {
 				<Box sx={style}>
 					<Stack spacing={2}>
 						<Typography variant={'h6'}>Add a new job you applied</Typography>
-						<TextField label="Job Title" placeholder="Add job title here..." />
-						<TextField label="Company" placeholder="Add company here..." />
+						<TextField
+							label="Job Title"
+							placeholder="Add job title here..."
+							onChange={(event) => textFieldHandler(event, 'jobTitle')}
+							value={jobTitle}
+						/>
+						<TextField
+							label="Company"
+							placeholder="Add company here..."
+							onChange={(event) => textFieldHandler(event, 'company')}
+							value={company}
+						/>
 
 						<Stack direction="row" spacing={2}>
 							<TextField
@@ -136,7 +170,12 @@ const ModalAdd = ({ open, handleClose }) => {
 									</MenuItem>
 								))}
 							</TextField>
-							<TextField label="City" placeholder="Add city here..." />
+							<TextField
+								label="City"
+								placeholder="Add city here..."
+								onChange={(event) => textFieldHandler(event, 'city')}
+								value={city}
+							/>
 						</Stack>
 
 						<LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -156,6 +195,8 @@ const ModalAdd = ({ open, handleClose }) => {
 							rows={3}
 							placeholder="Add your notes here..."
 							variant="outlined"
+							onChange={(event) => textFieldHandler(event, 'notes')}
+							value={notes}
 						/>
 						<div>
 							<Button
@@ -198,6 +239,18 @@ const ModalAdd = ({ open, handleClose }) => {
 								pdfTitle={pdfTitle}
 							/>
 						</div>
+						<Button
+							variant="contained"
+							component="label"
+							sx={{
+								mt: 10,
+								position: 'fixed',
+								bottom: 20,
+								right: 30,
+							}}
+						>
+							Add Job
+						</Button>
 					</Stack>
 				</Box>
 			</Modal>
