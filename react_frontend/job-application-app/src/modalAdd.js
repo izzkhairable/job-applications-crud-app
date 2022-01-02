@@ -12,6 +12,7 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import DisplayImagesUploaded from './displayImagesUploaded';
 import DisplayPdfsUploaded from './displayPdfsUploaded';
+import InsertJobs from './insertJobs';
 
 const style = {
 	position: 'absolute',
@@ -132,6 +133,20 @@ const ModalAdd = ({ open, handleClose }) => {
 		console.log('Files', images);
 	}, [selectedPdf]);
 
+	const submitHandler = async () => {
+		const data = {
+			jobTitle,
+			company,
+			country,
+			city,
+			dateApplied: dateApplied.toISOString(),
+			notes,
+		};
+		console.log('This is data', data);
+		await InsertJobs(data);
+		return;
+	};
+
 	return (
 		<div>
 			<Modal
@@ -239,18 +254,31 @@ const ModalAdd = ({ open, handleClose }) => {
 								pdfTitle={pdfTitle}
 							/>
 						</div>
-						<Button
-							variant="contained"
-							component="label"
+						<Stack
 							sx={{
 								mt: 10,
 								position: 'fixed',
 								bottom: 20,
-								right: 30,
+								right: 10,
 							}}
+							direction="row"
 						>
-							Add Job
-						</Button>
+							<Button
+								variant="outlined"
+								component="label"
+								sx={{ mr: 1 }}
+								onClick={handleClose}
+							>
+								Close
+							</Button>
+							<Button
+								variant="contained"
+								component="label"
+								onClick={submitHandler}
+							>
+								Add Job
+							</Button>
+						</Stack>
 					</Stack>
 				</Box>
 			</Modal>
